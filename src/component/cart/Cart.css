@@ -1,9 +1,9 @@
 .cart {
     position: fixed;
-    top: 70px;
+    top: 67px;
     right: -100%;
     width: 400px; 
-    height: 100%;
+    height: calc(100% - 70px);
     background-color: white; 
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     transition: right 0.3s ease-in-out;
@@ -11,6 +11,7 @@
     color: #282c34;
     margin: auto;
     overflow-y: scroll;
+    padding-bottom: 50px;
 }
 
 .cart.show {
@@ -23,4 +24,43 @@
 }
 .cart-card .custom-button{
     color: #ff2300d9;
+}
+
+.cart .checkout-section{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    position: fixed;
+    bottom: 0;
+    width: 400px;
+    background-color: #282c34;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.cart .cart-header{
+    padding: 10px;
+    position: fixed;
+    top: 67px;
+    width: 400px;
+    background-color: #282c34;
+    box-shadow: 0 0px 5px rgba(0, 0, 0, 0.5);
+    color: #ccc;
+    text-align: left;
+}
+.cart-header-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart .cart-header h2{
+    font-size: 18px;
+}
+
+.cart .cart-header .cart-status{
+    font-size: 12px;
+}
+.cart .cart-body{
+    margin-top: 80px;
 }
