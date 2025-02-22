@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Button from '../button/Button';
 import Input from '../input/input';
 import generateDomainData from '../../utils/generateDomainData';
 import "./Form.css";
@@ -22,7 +21,6 @@ const Form: React.FC<FormProps> = ({ setSuggestedData }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Form Data:', formData);
         setSuggestedData(generateDomainData(formData.domain));
 
 };
