@@ -2,7 +2,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     min-width: 300px;
-    max-width: 600px;
+    max-width: 300px;
     margin: 10px;
 }
 .card-header{
@@ -10,5 +10,6 @@
     padding: 10px;
     border-bottom: 1px solid #ccc;
     color: #282c34;
-    text-transform: capitalize;
+    text-transform: lowercase;
+    text-wrap: wrap;
 }

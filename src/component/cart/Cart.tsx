@@ -1,4 +1,5 @@
 import React from 'react';
+import './Cart.css';
 
 interface Card {
     id: number;
@@ -8,11 +9,15 @@ interface Card {
 
 interface CartProps {
     cards: Card[];
+    isShow: boolean;
 }
 
-const Cart: React.FC<CartProps> = ({ cards }) => {
+const Cart: React.FC<CartProps> = ({ cards,isShow }) => {
     return (
-        <div>
+        <>
+        <div className={`cart ${isShow ? 'show' : 'hide'}`}>
+        <p style={{color:"red"}}>Your Cart</p>
+
             {cards.length > 0 ? (
                 cards.map((card) => (
                     <div key={card.id} className="card">
@@ -24,6 +29,7 @@ const Cart: React.FC<CartProps> = ({ cards }) => {
                 <p>No Domains avai lable</p>
             )}
         </div>
+        </>
     );
 };
 

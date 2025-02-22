@@ -15,6 +15,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  position: relative;
 }
 .card-container{
   display: flex;
@@ -22,3 +23,13 @@
   justify-content: center;
 }
 
+.navbar{
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: left;
+  width: 100%;
+  /* position: fixed; */
+  top: 0;
+  /* z-index: 1; */
+}
