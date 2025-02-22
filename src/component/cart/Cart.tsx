@@ -1,10 +1,12 @@
 import React from 'react';
 import './Cart.css';
+import Card from './card/Card';
 
 interface Card {
     id: number;
-    title: string;
-    description: string;
+    heading: string;
+    availbility: string;
+    pricing: string;
 }
 
 interface CartProps {
@@ -19,11 +21,8 @@ const Cart: React.FC<CartProps> = ({ cards,isShow }) => {
         <p style={{color:"red"}}>Your Cart</p>
 
             {cards.length > 0 ? (
-                cards.map((card) => (
-                    <div key={card.id} className="card">
-                        <h2>{card.title}</h2>
-                        <p>{card.description}</p>
-                    </div>
+                cards.map((data) => (
+                    <Card key={data.id} heading={data.heading} availbility={data.availbility} pricing={data.pricing} />
                 ))
             ) : (
                 <p>No Domains avai lable</p>

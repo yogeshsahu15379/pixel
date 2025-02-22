@@ -1,11 +1,9 @@
 import React from 'react';
-// import './Button.css';
+import './Button.css';
 
 interface ButtonProps {
     text: string;
     type: 'submit' | 'reset' | 'button';
-    color?: string;
-    backgroundColor?: string;
     isDisabled?: boolean;
     isLoading?: boolean;
     onClick?: () => void;
@@ -14,8 +12,6 @@ interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
     text,
     type='submit',
-    color = 'white',
-    backgroundColor = 'blue',
     isDisabled = false,
     isLoading = false,
     onClick,
@@ -23,7 +19,6 @@ const Button: React.FC<ButtonProps> = ({
     return (
         <button
             className="custom-button"
-            style={{ color, backgroundColor }}
             disabled={isDisabled || isLoading}
             onClick={onClick}
             type={type}

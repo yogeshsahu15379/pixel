@@ -36,7 +36,7 @@ const Form: React.FC<FormProps> = ({ setSuggestedData }) => {
                 onChange={handleChange}
                 placeholder="Type you dream domain."
             />
-            <Button type="submit" text={'search'}/>
+            <Button type="submit" text={'Search'}/>
         </form>
     );
 };
