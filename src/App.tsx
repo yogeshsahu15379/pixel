@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Card from './component/card/Card';
 import Form from './component/form/Form';
@@ -11,7 +11,6 @@ function App() {
   const [isShowCart, setIsShowCart] = useState(false);
   const [cartData, setCartData] = useState([]);
 
-  useEffect(() => {console.log(cartData)}, [cartData]);
   return (
     <div className="App App-header">
       <nav className="navbar">
