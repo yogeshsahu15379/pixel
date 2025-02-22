@@ -1,0 +1,14 @@
+.card{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-width: 300px;
+    max-width: 600px;
+    margin: 10px;
+}
+.card-header{
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    color: #282c34;
+    text-transform: capitalize;
+}
