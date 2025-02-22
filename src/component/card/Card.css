@@ -9,7 +9,7 @@
     background-color: #f4f4f4;
     padding: 10px;
     border-bottom: 1px solid #ccc;
-    color: #282c34;
+    color: #5b5d62;
     text-transform: lowercase;
     text-wrap: wrap;
 }
@@ -23,4 +23,14 @@
 .price{
     font-size: .5em;
     color: #ccc;
+}
+.card.unavailable h2{
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+.card .card-header h4{
+    margin: 0;
+    font-size: .7em;
+    color: #282c34;
 }

@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import './Message.css';
 
 interface MessageProps {
-    msgType: 'success' | 'error' | 'info' | 'warning';
-    text: string;
-    dismissible: boolean;
-    dismissDuration?: number;
+    type: 'error' | 'success' | 'info' | 'warning';
+    message: string;
+    visible: boolean;
+    onClose: () => void;
 }
 
-const Message: React.FC<MessageProps> = ({ msgType, text, dismissible, dismissDuration }) => {
-    const [visible, setVisible] = useState(true);
+const Message: React.FC<MessageProps> = ({ type, message, visible, onClose }) => {
+    const [isVisible, setIsVisible] = useState(visible);
 
     useEffect(() => {
-        if (dismissible && dismissDuration) {
+        if (visible) {
+            setIsVisible(true);
             const timer = setTimeout(() => {
-                setVisible(false);
-            }, dismissDuration);
-
+                setIsVisible(false);
+                onClose();
+            }, 3000);
             return () => clearTimeout(timer);
         }
-    }, [dismissible, dismissDuration]);
+    }, [visible, onClose]);
 
-    if (!visible) return null;
+    if (!isVisible) return null;
 
     return (
-        <div className={`message ${msgType}`}>
-           <p> <strong>{msgType.toUpperCase()}: </strong>{text}</p>
-            {dismissible && <button onClick={() => setVisible(false)} style={{ marginLeft: '10px' }}>Dismiss</button>}
+        <div className={`message ${type}`}>
+            <p>{message}</p>
         </div>
     );
 };

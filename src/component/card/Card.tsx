@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Card.css';
 import Button from '../button/Button';
+import Message from '../message/Message';
+import { is } from '@babel/types';
 
 interface CardProps {
   heading: string;
@@ -10,8 +12,11 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ heading, availbility, pricing, setCartData }) => {
+  const [msg, setMsg] = useState<{ isVisible: boolean; message: string; type: 'success' | 'warning' | 'error' | 'info' }>({isVisible: false, message: '', type: 'success'});
   return (
-    <div className="card">
+    <>
+{  msg.isVisible&&  <Message type={msg.type} message={msg.message} visible={true} onClose={() => {}} />
+}    <div className={`card ${availbility === 'Available' ? 'available' : 'unavailable'}`}>
       <div className="card-header">
         <h2>{heading}</h2>
         <h4>{availbility}</h4>
@@ -25,6 +30,7 @@ const Card: React.FC<CardProps> = ({ heading, availbility, pricing, setCartData 
             // checking if the item is already in the cart
             setCartData((prevData: any[]) => {
               if (!prevData.some(item => item.heading === heading && item.availbility === availbility && item.pricing === pricing)) {
+                setMsg({isVisible: true, message: 'Item successfully added into cart.', type: 'success'});
                 return [...prevData, { heading, availbility, pricing }];
               }
               return prevData;
@@ -33,6 +39,7 @@ const Card: React.FC<CardProps> = ({ heading, availbility, pricing, setCartData 
         />
       </div>
     </div>
+    </>
   );
 };
 

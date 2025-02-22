@@ -19,7 +19,7 @@
 }
 
 .custom-button:active {
-    background-color: #ccc;
+    background-color: #494949;
 }
 .custom-button:disabled {
     background-color: #e0e0e0;

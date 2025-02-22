@@ -15,8 +15,11 @@ function App() {
     <div className="App App-header">
       <nav className="navbar">
         <h1>Domain Buddy</h1>
+        <div style={{position: 'relative'}}>
+          {/** Show cart count only if there are items in the cart */}
+        {cartData.length>0 &&  <p className="cart-count">{cartData.length}</p>}
         <Button text="Cart" type='button' onClick={() => { setIsShowCart(!isShowCart) }}/>
-
+        </div>
       </nav>
       <div className="container">
         <Form setSuggestedData={setSuggestedData} />
