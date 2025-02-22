@@ -21,6 +21,10 @@ const Form: React.FC<FormProps> = ({ setSuggestedData }) => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+        if(formData.domain === '') {
+            alert('Please enter a domain name');
+            return;
+        }
         setSuggestedData(generateDomainData(formData.domain));
 
 };
