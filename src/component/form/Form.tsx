@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Button from '../button/Button';
 import Input from '../input/input';
 import generateDomainData from '../../utils/generateDomainData';
-
+import "./Form.css";
 interface FormProps {
     setSuggestedData: (data: any) => void;
 }
@@ -28,7 +28,7 @@ const Form: React.FC<FormProps> = ({ setSuggestedData }) => {
 };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='form-container card-conatiner'>
             <Input
                 type="text"
                 name="domain"
@@ -36,7 +36,8 @@ const Form: React.FC<FormProps> = ({ setSuggestedData }) => {
                 onChange={handleChange}
                 placeholder="Type you dream domain."
             />
-            <Button type="submit" text={'Search'}/>
+                <button><span>Search</span> </button>
+
         </form>
     );
 };

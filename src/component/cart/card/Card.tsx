@@ -17,8 +17,9 @@ const Card: React.FC<CardProps> = ({ heading, availbility, pricing,setCartData }
                 <h4>{availbility}</h4>
             </div>
             <div className="card-body">
+            <p className="pricing"><span className='price'>Price</span> ${pricing}</p>
                 <Button 
-                    text="remove" 
+                    text="Remove" 
                     type='button' 
                     onClick={() => {
                         setCartData((prevData: any[]) => {

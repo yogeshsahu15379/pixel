@@ -1,16 +1,26 @@
 .cart {
     position: fixed;
-    top: 0;
+    top: 70px;
     right: -100%;
-    width: 300px; 
+    width: 400px; 
     height: 100%;
     background-color: white; 
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
     transition: right 0.3s ease-in-out;
     /* z-index: 2; */
-    color: red
+    color: #282c34;
+    margin: auto;
+    overflow-y: scroll;
 }
 
 .cart.show {
     right: 0;
+}
+.cart .cart-card{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+.cart-card .custom-button{
+    color: #ff2300d9;
 }

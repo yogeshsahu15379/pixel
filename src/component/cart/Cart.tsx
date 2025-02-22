@@ -19,11 +19,12 @@ const Cart: React.FC<CartProps> = ({ cards,isShow,setCartData }) => {
     return (
         <>
         <div className={`cart ${isShow ? 'show' : 'hide'}`}>
-        <p style={{color:"red"}}>Your Cart</p>
-
+        <p>Your Cart</p>
             {cards.length > 0 ? (
-                cards.map((data) => (
-                    <Card key={data.id} heading={data.heading} availbility={data.availbility} pricing={data.pricing} setCartData={setCartData}/>
+                cards.map((data,index) => (
+                    <div className='cart-card'  key={index}>
+                    <Card heading={data.heading} availbility={data.availbility} pricing={data.pricing} setCartData={setCartData}/>
+                    </div>
                 ))
             ) : (
                 <p>No Domains avai lable</p>
