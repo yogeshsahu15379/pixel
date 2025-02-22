@@ -29,6 +29,18 @@ const Cart: React.FC<CartProps> = ({ cards, isShow, setCartData }) => {
     } else if (cards.length === CartLimit) {
         cartStatus = "Cart is Full";
     }
+    const removeUnavailableDomains = () => {
+        const availableDomains = cards.filter(card => card.availbility === 'Available');
+        setCartData(availableDomains);
+    };
+    const copyHeadingsToClipboard = () => {
+        const headings = cards.map(card => card.heading).join(', ');
+        navigator.clipboard.writeText(headings).then(() => {
+            alert('Headings copied to clipboard');
+        }).catch(err => {
+            console.error('Failed to copy headings: ', err);
+        });
+    };
 
     return (
         <>
@@ -39,7 +51,8 @@ const Cart: React.FC<CartProps> = ({ cards, isShow, setCartData }) => {
                             <h2>Cart</h2>
                             <p className='cart-status'>{cartStatus}</p>
                         </div>
-                        <Button text="clear" type="reset" onClick={() => setCartData([])} />
+                        <Button text="Copy all Domains" type="button" onClick={() => copyHeadingsToClipboard()} />
+                        <Button text="clear cart" type="reset" onClick={() => setCartData([])} />
                     </div>
                     <Progress current={cards.length} limit={CartLimit} />
                 </div>
@@ -59,6 +72,8 @@ const Cart: React.FC<CartProps> = ({ cards, isShow, setCartData }) => {
                         <p className='price'><span>Items count: </span>{cards.length}</p>
                     <p className='total-amount price'><span>Total: </span>${totalAmount}</p>
                     </div>
+                    <Button text="remove unavailable domains" type="button" onClick={() => removeUnavailableDomains()} />
+
                     <Button text="Purchase" type="button" isDisabled={cards.length === 0 || cards.length>CartLimit} />
                 </div>
             </div>
