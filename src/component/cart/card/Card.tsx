@@ -6,9 +6,10 @@ interface CardProps {
     heading: string;
     availbility: string;
     pricing: string;
+    setCartData: (data: any) => void;
 }
 
-const Card: React.FC<CardProps> = ({ heading, availbility, pricing }) => {
+const Card: React.FC<CardProps> = ({ heading, availbility, pricing,setCartData }) => {
     return (
         <div className="card">
             <div className="card-header">
@@ -16,12 +17,13 @@ const Card: React.FC<CardProps> = ({ heading, availbility, pricing }) => {
                 <h4>{availbility}</h4>
             </div>
             <div className="card-body">
-                <p className="pricing"><span className='price'>Price</span> ${pricing}</p>
                 <Button 
                     text="remove" 
                     type='button' 
                     onClick={() => {
-                        console.log('removed to Cart');
+                        setCartData((prevData: any[]) => {
+                            return prevData.filter(item => item.heading !== heading);
+                        });
                     }} 
                 />
             </div>

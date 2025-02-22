@@ -25,7 +25,7 @@ function App() {
             <Card heading={data.domain.toLowerCase()} availbility={data.availability} pricing={data.price} setCartData={setCartData}/>
           ))}
         </div>
-        <Cart cards={cartData} isShow={isShowCart} />
+        <Cart cards={cartData} isShow={isShowCart} setCartData={setCartData} />
       </div>
     </div>
   );

@@ -12,9 +12,10 @@ interface Card {
 interface CartProps {
     cards: Card[];
     isShow: boolean;
+    setCartData: (data: any) => void;
 }
 
-const Cart: React.FC<CartProps> = ({ cards,isShow }) => {
+const Cart: React.FC<CartProps> = ({ cards,isShow,setCartData }) => {
     return (
         <>
         <div className={`cart ${isShow ? 'show' : 'hide'}`}>
@@ -22,7 +23,7 @@ const Cart: React.FC<CartProps> = ({ cards,isShow }) => {
 
             {cards.length > 0 ? (
                 cards.map((data) => (
-                    <Card key={data.id} heading={data.heading} availbility={data.availbility} pricing={data.pricing} />
+                    <Card key={data.id} heading={data.heading} availbility={data.availbility} pricing={data.pricing} setCartData={setCartData}/>
                 ))
             ) : (
                 <p>No Domains avai lable</p>
