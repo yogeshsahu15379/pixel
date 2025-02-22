@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Card.css';
 import Button from '../button/Button';
 import Message from '../message/Message';
-import { is } from '@babel/types';
 
 interface CardProps {
   heading: string;

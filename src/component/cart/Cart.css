@@ -65,3 +65,25 @@
 .cart .cart-body{
     margin-top: 80px;
 }
+
+@media (max-width: 768px) {
+    .cart {
+        width: 100%;
+        height: calc(100% - 60px);
+    }
+
+    .cart .checkout-section,
+    .cart .cart-header {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart .cart-header h2 {
+        font-size: 16px;
+    }
+
+    .cart .cart-header .cart-status {
+        font-size: 10px;
+    }
+}
